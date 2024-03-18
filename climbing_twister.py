@@ -17,6 +17,9 @@ def play_twister():
         
         the_move = random.choice(moves)
 
+        if last_move == the_move:
+            continue
+
         if the_move in bad_dups:
             if the_move in check_dup:
                 continue
@@ -38,6 +41,7 @@ def play_twister():
             if corresponding_move in check_dup:
                 check_dup.remove(corresponding_move)
     
+        last_move = the_move
         print(f"Move: {the_move}")
 
         play = input("Another move? (y/n)").lower()
